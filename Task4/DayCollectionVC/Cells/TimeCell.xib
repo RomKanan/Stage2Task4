@@ -58,6 +58,9 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="546" height="50"/>
+            <connections>
+                <outlet property="timeLable" destination="WqG-hO-a4r" id="OZE-jw-VpS"/>
+            </connections>
             <point key="canvasLocation" x="124.6376811594203" y="34.821428571428569"/>
         </collectionViewCell>
     </objects>

@@ -17,7 +17,7 @@
 
 - (void)prepareLayout{
     self.layouts = [NSMutableArray new];
-    CGFloat viewWidth =  UIScreen.mainScreen.bounds.size.width;
+    CGFloat viewWidth =  CGRectGetWidth(self.collectionView.bounds);
     self.yOffset = 0.f;
     for (NSUInteger i =0; i < [self.collectionView numberOfItemsInSection:0]; i++){
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];

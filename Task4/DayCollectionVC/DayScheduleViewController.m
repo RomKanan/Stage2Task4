@@ -26,8 +26,6 @@ static NSString * const iventCellID = @"IventCell";
     [super viewDidLoad];
     self.customLayout = [DayScheduleLayout new];
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.customLayout];
-//    [self.collectionView registerClass:TimeCell.self forCellWithReuseIdentifier:timeCell];
-//    [self.collectionView registerClass:IventCell.self forCellWithReuseIdentifier:iventCell];
     [self.collectionView registerNib:[UINib nibWithNibName:@"IventCell" bundle:nil]
           forCellWithReuseIdentifier:iventCellID];
     [self.collectionView registerNib:[UINib nibWithNibName:@"TimeCell" bundle:nil]
@@ -40,6 +38,10 @@ static NSString * const iventCellID = @"IventCell";
 
 }
 
+//- (void)viewDidAppear:(BOOL)animated{
+//    [super viewWillAppear:YES];
+//    [self.customLayout invalidateLayout];
+//}
 - (void)viewDidLayoutSubviews {
     self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:@[
@@ -47,28 +49,32 @@ static NSString * const iventCellID = @"IventCell";
     [self.collectionView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
     [self.collectionView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
     [self.collectionView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]]];
+    [self.customLayout invalidateLayout];
 }
 
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete implementation, return the number of sections
     return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of items
     return 24 * 4;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:timeCellID forIndexPath:indexPath];
+    
+    TimeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:timeCellID forIndexPath:indexPath];
+    if (indexPath.item % 4 == 0) {
+        cell.timeLable.text = [NSString stringWithFormat:@"%ld:00", indexPath.item / 4 ];
+    } else {
+        cell.timeLable.text = @"";
+    }
     
     // Configure the cell
     
     return cell;
 }
-
 
 @end

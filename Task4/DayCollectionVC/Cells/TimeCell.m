@@ -8,6 +8,10 @@
 
 #import "TimeCell.h"
 
+@interface TimeCell ()
+
+@end
+
 @implementation TimeCell
 
 - (void)awakeFromNib {

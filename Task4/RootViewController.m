@@ -8,11 +8,14 @@
 
 #import "RootViewController.h"
 #import "DayScheduleViewController.h"
+#import "DataSource.h"
+
 
 @interface RootViewController ()
 @property (nonatomic, strong) DayScheduleViewController *dayScheduleController;
 @property (nonatomic, strong) UIView *dayScheduleCollectionView;
 @property (weak, nonatomic) IBOutlet UIView *dayScheduleContainerView;
+@property (strong, nonatomic) DataSource *dataSource;
 
 @end
 
@@ -20,6 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.dataSource = [DataSource new];
+    [self.dataSource fetchData];
     self.dayScheduleController = [[DayScheduleViewController alloc] init];
     self.dayScheduleCollectionView = self.dayScheduleController.view;
     [self addChildViewController:self.dayScheduleController];

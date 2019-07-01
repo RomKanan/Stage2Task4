@@ -21,12 +21,17 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXh-3n-e1k">
+                    <rect key="frame" x="375" y="0.0" width="0.0" height="667"/>
+                    <color key="backgroundColor" red="0.1678082192" green="0.30037992289999998" blue="0.75743792809999999" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cbz-7y-Op6">
+                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="667"/>
+                    <color key="backgroundColor" red="0.1678082192" green="0.30037992289999998" blue="0.75743792809999999" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6LC-J2-Gtg">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                     <color key="backgroundColor" red="0.1678082191780822" green="0.30037992294520549" blue="0.75743792808219179" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="6LC-J2-Gtg" secondAttribute="height" multiplier="25:8" id="lBT-vQ-mkI"/>
-                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hjc-DG-adR">
                     <rect key="frame" x="0.0" y="120" width="375" height="547"/>
@@ -35,13 +40,22 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="top" secondItem="6LC-J2-Gtg" secondAttribute="bottom" constant="-100" id="3zA-30-ORG"/>
+                <constraint firstAttribute="trailing" secondItem="dXh-3n-e1k" secondAttribute="trailing" id="712-7t-i8G"/>
                 <constraint firstItem="6LC-J2-Gtg" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="Et4-KJ-h3W"/>
+                <constraint firstItem="dXh-3n-e1k" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="FBb-zh-2Av"/>
                 <constraint firstItem="6LC-J2-Gtg" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="FLT-4y-Hxz"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="hjc-DG-adR" secondAttribute="bottom" id="WyL-Lc-DMY"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="hjc-DG-adR" secondAttribute="trailing" id="dAQ-IP-iKk"/>
                 <constraint firstItem="hjc-DG-adR" firstAttribute="top" secondItem="6LC-J2-Gtg" secondAttribute="bottom" id="dSC-yT-eZ0"/>
+                <constraint firstAttribute="bottom" secondItem="cbz-7y-Op6" secondAttribute="bottom" id="kiR-RI-9Xc"/>
+                <constraint firstItem="cbz-7y-Op6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lck-Xr-saE"/>
                 <constraint firstItem="hjc-DG-adR" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="nZD-eu-VuA"/>
                 <constraint firstItem="6LC-J2-Gtg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qre-cb-fAx"/>
+                <constraint firstItem="cbz-7y-Op6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rSn-Wh-8a0"/>
+                <constraint firstItem="dXh-3n-e1k" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vGG-bn-ddb"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="leading" secondItem="cbz-7y-Op6" secondAttribute="trailing" id="vdz-Tg-5ih"/>
+                <constraint firstAttribute="bottom" secondItem="dXh-3n-e1k" secondAttribute="bottom" id="vnN-48-9ve"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="48.799999999999997" y="35.532233883058474"/>
