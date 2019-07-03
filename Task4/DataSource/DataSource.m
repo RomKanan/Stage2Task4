@@ -75,11 +75,11 @@
     }
 }
 
-- (void)fetchData {
+- (NSMutableArray<RKEvent *> *)fetchData {
 
     if(![self isAuthorized]) {
         [self updateAuthorizationStatusToAccessEventStore];
-        return;
+        return nil;
     }
 
     self.eventStore = [EKEventStore new];
@@ -92,6 +92,12 @@
     NSDate *endDate = [self.calendar dateBySettingHour:23 minute:59 second:59 ofDate:self.selectedDate options:NSCalendarWrapComponents];
     NSPredicate *predicate = [self.eventStore predicateForEventsWithStartDate:startDate endDate:endDate  calendars: nil];
     NSArray<EKEvent *> *ekEvents = [self.eventStore eventsMatchingPredicate:predicate];
-    RKEvent testEvent
+    NSMutableArray<RKEvent *> *rkEvents = [NSMutableArray new];
+    for (EKEvent *event in ekEvents) {
+        RKEvent *rkEvent = [[RKEvent alloc] initWithEKEvent:event];
+        [rkEvents addObject:rkEvent];
+    }
+    return  [rkEvents copy];
+    
 }
 @end

@@ -37,19 +37,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLl-79-Y3o">
+                                <rect key="frame" x="73" y="14" width="400" height="2"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="WEw-7P-TfR"/>
+                                    <constraint firstAttribute="height" constant="2" id="mC0-40-IgB"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="WqG-hO-a4r" firstAttribute="centerY" secondItem="Z2d-CB-jBS" secondAttribute="centerY" id="FwD-xA-BDQ"/>
+                            <constraint firstItem="HLl-79-Y3o" firstAttribute="centerY" secondItem="Z2d-CB-jBS" secondAttribute="centerY" id="PSJ-67-Dce"/>
                             <constraint firstAttribute="trailing" secondItem="YUe-lg-fN2" secondAttribute="trailing" id="RKw-bO-lzv"/>
                             <constraint firstItem="YUe-lg-fN2" firstAttribute="leading" secondItem="Z2d-CB-jBS" secondAttribute="leading" id="WUP-Wn-pNS"/>
                             <constraint firstAttribute="bottom" secondItem="YUe-lg-fN2" secondAttribute="bottom" id="gwn-7L-MK9"/>
+                            <constraint firstItem="HLl-79-Y3o" firstAttribute="centerX" secondItem="Z2d-CB-jBS" secondAttribute="centerX" id="irs-QA-jL8"/>
                             <constraint firstItem="WqG-hO-a4r" firstAttribute="leading" secondItem="Z2d-CB-jBS" secondAttribute="leading" constant="5" id="mLh-D5-WHr"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
-            <color key="backgroundColor" red="0.2407131605" green="1" blue="0.4387818638" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Z2d-CB-jBS" secondAttribute="bottom" id="MK7-JB-fqO"/>
                 <constraint firstItem="Z2d-CB-jBS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="YiA-dh-9bc"/>
@@ -59,6 +69,7 @@
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="546" height="50"/>
             <connections>
+                <outlet property="dottedView" destination="HLl-79-Y3o" id="zdd-bd-F10"/>
                 <outlet property="timeLable" destination="WqG-hO-a4r" id="OZE-jw-VpS"/>
             </connections>
             <point key="canvasLocation" x="124.6376811594203" y="34.821428571428569"/>

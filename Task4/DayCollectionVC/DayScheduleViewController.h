@@ -8,10 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface DayScheduleViewController : UIViewController
 @property (strong, nonatomic, readonly) UICollectionView *collectionView;
 @end
 
-NS_ASSUME_NONNULL_END

@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RKEvent.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DayScheduleLayout : UICollectionViewLayout
-
+@property (nonatomic, strong) NSArray<RKEvent *> *events;
 @end
 
 NS_ASSUME_NONNULL_END

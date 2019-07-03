@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
 
 @interface IventCell : UICollectionViewCell
+@property (strong, nonatomic) UIColor* color;
+@property (strong, nonatomic) NSString* text;
+@property (weak, nonatomic) IBOutlet UILabel *eventDescriptionLable;
+@property (weak, nonatomic) IBOutlet UIView *eventRootView;
 
 @end
 
-NS_ASSUME_NONNULL_END

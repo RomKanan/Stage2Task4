@@ -7,26 +7,63 @@
 //
 
 #import "WeekViewController.h"
+#import "WeekCell.h"
 
-@interface WeekViewController ()
+@interface WeekViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
 @implementation WeekViewController
+static NSString * const weekCellID = @"WeekCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    //UICollectionViewFlowLayout *layout = self.collectionView.collectionViewLayout;
+    [self.collectionView registerNib:[UINib nibWithNibName:@"WeekCell" bundle:nil]
+          forCellWithReuseIdentifier:weekCellID];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    CGFloat viewWidth =  CGRectGetWidth(self.collectionView.bounds);
+    return CGSizeMake(viewWidth, 100);
 }
-*/
+
+- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    WeekCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:weekCellID forIndexPath:indexPath];
+    return cell;
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

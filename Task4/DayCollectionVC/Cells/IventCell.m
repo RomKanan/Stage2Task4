@@ -8,6 +8,11 @@
 
 #import "IventCell.h"
 
+@interface IventCell ()
+
+
+@end
+
 @implementation IventCell
 
 - (void)awakeFromNib {

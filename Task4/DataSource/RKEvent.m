@@ -7,7 +7,7 @@
 //
 
 #import "RKEvent.h"
-#import <UIKit/UIKit.h>
+
 
 @interface RKEvent ()
 @property (strong, nonatomic) EKEvent *event;
@@ -26,20 +26,12 @@
         self.event = event;
         NSCalendar *calendar = [NSCalendar currentCalendar];
         NSTimeInterval interval = [self.event.startDate timeIntervalSinceDate:self.event.endDate];
-        self.eventHeigh = 2.f * interval / 60.f;
+        self.eventHeigh = ABS(2.f * interval / 60.f);
         NSDate *startDate = [calendar dateBySettingHour:0 minute:0 second:0 ofDate:self.event.startDate options:NSCalendarWrapComponents];
         NSTimeInterval intervalFromDayStart = [startDate timeIntervalSinceDate:self.event.startDate];
-        self.yPosition = 2.f * intervalFromDayStart / 60.f;
+        self.yPosition = ABS(2.f * intervalFromDayStart / 60.f);
         self.color = [UIColor colorWithCGColor:self.event.calendar.CGColor];
-        self.eventTitle = self.event.title;
-        
-        
-        
-        
-        
-        
-        
-        
+        self.eventTitle = self.event.title;  
     }
     return self;
 }

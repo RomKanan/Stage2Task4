@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="dayScheduleContainerView" destination="hjc-DG-adR" id="ees-Ac-qE5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="weekContainerView" destination="6LC-J2-Gtg" id="NUS-0R-Fxh"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -29,9 +30,16 @@
                     <rect key="frame" x="0.0" y="0.0" width="0.0" height="667"/>
                     <color key="backgroundColor" red="0.1678082192" green="0.30037992289999998" blue="0.75743792809999999" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dOo-N2-cMv">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                    <color key="backgroundColor" red="0.1678082192" green="0.30037992289999998" blue="0.75743792809999999" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6LC-J2-Gtg">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="100"/>
                     <color key="backgroundColor" red="0.1678082191780822" green="0.30037992294520549" blue="0.75743792808219179" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="1vE-C2-lXz"/>
+                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hjc-DG-adR">
                     <rect key="frame" x="0.0" y="120" width="375" height="547"/>
@@ -40,19 +48,22 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="top" secondItem="6LC-J2-Gtg" secondAttribute="bottom" constant="-100" id="3zA-30-ORG"/>
                 <constraint firstAttribute="trailing" secondItem="dXh-3n-e1k" secondAttribute="trailing" id="712-7t-i8G"/>
-                <constraint firstItem="6LC-J2-Gtg" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="Et4-KJ-h3W"/>
+                <constraint firstItem="6LC-J2-Gtg" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="BE8-w1-a07"/>
+                <constraint firstItem="6LC-J2-Gtg" firstAttribute="top" secondItem="dOo-N2-cMv" secondAttribute="bottom" id="Dkg-eD-US3"/>
+                <constraint firstItem="dXh-3n-e1k" firstAttribute="leading" secondItem="6LC-J2-Gtg" secondAttribute="trailing" id="EwP-0Q-fVf"/>
                 <constraint firstItem="dXh-3n-e1k" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="FBb-zh-2Av"/>
-                <constraint firstItem="6LC-J2-Gtg" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="FLT-4y-Hxz"/>
+                <constraint firstItem="dXh-3n-e1k" firstAttribute="leading" secondItem="dOo-N2-cMv" secondAttribute="trailing" id="WZ2-be-hzS"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="hjc-DG-adR" secondAttribute="bottom" id="WyL-Lc-DMY"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="hjc-DG-adR" secondAttribute="trailing" id="dAQ-IP-iKk"/>
-                <constraint firstItem="hjc-DG-adR" firstAttribute="top" secondItem="6LC-J2-Gtg" secondAttribute="bottom" id="dSC-yT-eZ0"/>
+                <constraint firstItem="hjc-DG-adR" firstAttribute="top" secondItem="6LC-J2-Gtg" secondAttribute="bottom" id="eCx-5f-yGW"/>
+                <constraint firstItem="dOo-N2-cMv" firstAttribute="leading" secondItem="cbz-7y-Op6" secondAttribute="trailing" id="iCc-vB-PnC"/>
                 <constraint firstAttribute="bottom" secondItem="cbz-7y-Op6" secondAttribute="bottom" id="kiR-RI-9Xc"/>
                 <constraint firstItem="cbz-7y-Op6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lck-Xr-saE"/>
                 <constraint firstItem="hjc-DG-adR" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="nZD-eu-VuA"/>
-                <constraint firstItem="6LC-J2-Gtg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qre-cb-fAx"/>
+                <constraint firstItem="dOo-N2-cMv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="r5A-3l-tEV"/>
                 <constraint firstItem="cbz-7y-Op6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rSn-Wh-8a0"/>
+                <constraint firstItem="6LC-J2-Gtg" firstAttribute="leading" secondItem="cbz-7y-Op6" secondAttribute="trailing" id="rpG-9W-230"/>
                 <constraint firstItem="dXh-3n-e1k" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vGG-bn-ddb"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="leading" secondItem="cbz-7y-Op6" secondAttribute="trailing" id="vdz-Tg-5ih"/>
                 <constraint firstAttribute="bottom" secondItem="dXh-3n-e1k" secondAttribute="bottom" id="vnN-48-9ve"/>

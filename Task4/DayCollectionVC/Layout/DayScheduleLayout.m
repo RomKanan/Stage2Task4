@@ -7,6 +7,7 @@
 //
 
 #import "DayScheduleLayout.h"
+#import "DataSource.h"
 
 @interface DayScheduleLayout ()
 @property (nonatomic, strong) NSMutableArray<UICollectionViewLayoutAttributes *> *layouts;
@@ -16,16 +17,40 @@
 @implementation DayScheduleLayout
 
 - (void)prepareLayout{
+    DataSource *dataSourxe = [[DataSource alloc] init];
+    self.events = [dataSourxe fetchData];
     self.layouts = [NSMutableArray new];
     CGFloat viewWidth =  CGRectGetWidth(self.collectionView.bounds);
     self.yOffset = 0.f;
-    for (NSUInteger i =0; i < [self.collectionView numberOfItemsInSection:0]; i++){
+
+    
+    NSInteger count = [self.collectionView numberOfItemsInSection:0];
+    
+    
+    
+    for (NSUInteger i =  0; i < [self.collectionView numberOfItemsInSection:0] - self.events.count; i++){
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
         UICollectionViewLayoutAttributes *atributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
         atributes.frame = CGRectMake(0, self.yOffset, viewWidth, 30);
         self.yOffset += 30;
         [self.layouts  addObject:atributes];
     }
+    
+    if (self.events) {
+        NSMutableArray *eventLayouts = [NSMutableArray new];
+        for (NSUInteger i = self.layouts.count; i < [self.collectionView numberOfItemsInSection:0]; i++){
+            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
+            UICollectionViewLayoutAttributes *atributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+            RKEvent *event = [self.events objectAtIndex:i - self.layouts.count] ;
+            atributes.frame = CGRectMake(50, event.yPosition, viewWidth - 50, event.eventHeigh);
+            atributes.zIndex = 100;
+            [eventLayouts addObject:atributes];
+        }
+        [self.layouts addObjectsFromArray:eventLayouts];
+    }
+    
+    
+    
     
     
 }

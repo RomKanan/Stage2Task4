@@ -9,6 +9,7 @@
 #import "TimeCell.h"
 
 @interface TimeCell ()
+@property (weak, nonatomic) IBOutlet UIView *dottedView;
 
 @end
 
@@ -16,7 +17,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
 @end
