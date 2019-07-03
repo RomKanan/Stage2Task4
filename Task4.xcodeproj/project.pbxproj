@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		A048FEBE22CCD4A60090E8F9 /* WeekCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A048FEBC22CCD4A60090E8F9 /* WeekCell.m */; };
 		A048FEBF22CCD4A60090E8F9 /* WeekCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A048FEBD22CCD4A60090E8F9 /* WeekCell.xib */; };
+		A048FEC322CD14C30090E8F9 /* DayOfWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = A048FEC222CD14C30090E8F9 /* DayOfWeekView.m */; };
+		A048FEC522CD14D40090E8F9 /* DayOfWeekView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A048FEC422CD14D40090E8F9 /* DayOfWeekView.xib */; };
+		A048FEC822CD3F2A0090E8F9 /* SelectedDate.m in Sources */ = {isa = PBXBuildFile; fileRef = A048FEC722CD3F2A0090E8F9 /* SelectedDate.m */; };
 		A09E5B0A22CA17DC00EEF079 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A09E5B0922CA17DC00EEF079 /* AppDelegate.m */; };
 		A09E5B1022CA17DC00EEF079 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A09E5B0E22CA17DC00EEF079 /* Main.storyboard */; };
 		A09E5B1222CA17DD00EEF079 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A09E5B1122CA17DD00EEF079 /* Assets.xcassets */; };
@@ -36,6 +39,11 @@
 		A048FEBB22CCD4A60090E8F9 /* WeekCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeekCell.h; sourceTree = "<group>"; };
 		A048FEBC22CCD4A60090E8F9 /* WeekCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeekCell.m; sourceTree = "<group>"; };
 		A048FEBD22CCD4A60090E8F9 /* WeekCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekCell.xib; sourceTree = "<group>"; };
+		A048FEC122CD14C30090E8F9 /* DayOfWeekView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DayOfWeekView.h; sourceTree = "<group>"; };
+		A048FEC222CD14C30090E8F9 /* DayOfWeekView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DayOfWeekView.m; sourceTree = "<group>"; };
+		A048FEC422CD14D40090E8F9 /* DayOfWeekView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayOfWeekView.xib; sourceTree = "<group>"; };
+		A048FEC622CD3F2A0090E8F9 /* SelectedDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectedDate.h; sourceTree = "<group>"; };
+		A048FEC722CD3F2A0090E8F9 /* SelectedDate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectedDate.m; sourceTree = "<group>"; };
 		A09E5B0522CA17DC00EEF079 /* Task4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Task4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09E5B0822CA17DC00EEF079 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A09E5B0922CA17DC00EEF079 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -91,6 +99,16 @@
 				A048FEBD22CCD4A60090E8F9 /* WeekCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		A048FEC022CD14990090E8F9 /* dayOfWeekView */ = {
+			isa = PBXGroup;
+			children = (
+				A048FEC122CD14C30090E8F9 /* DayOfWeekView.h */,
+				A048FEC222CD14C30090E8F9 /* DayOfWeekView.m */,
+				A048FEC422CD14D40090E8F9 /* DayOfWeekView.xib */,
+			);
+			path = dayOfWeekView;
 			sourceTree = "<group>";
 		};
 		A09E5AFC22CA17DC00EEF079 = {
@@ -173,6 +191,8 @@
 				A09E5B4322CA4F3600EEF079 /* DataSource.m */,
 				A0D0204322CAA94B0085858D /* RKEvent.h */,
 				A0D0204422CAA94B0085858D /* RKEvent.m */,
+				A048FEC622CD3F2A0090E8F9 /* SelectedDate.h */,
+				A048FEC722CD3F2A0090E8F9 /* SelectedDate.m */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -188,6 +208,7 @@
 		A09E5B4B22CA72CB00EEF079 /* WeakColletionVC */ = {
 			isa = PBXGroup;
 			children = (
+				A048FEC022CD14990090E8F9 /* dayOfWeekView */,
 				A048FEB722CCD46A0090E8F9 /* Cells */,
 				A09E5B4E22CA73F200EEF079 /* WeekViewController.h */,
 				A09E5B4F22CA73F200EEF079 /* WeekViewController.m */,
@@ -268,6 +289,7 @@
 				A09E5B1222CA17DD00EEF079 /* Assets.xcassets in Resources */,
 				A09E5B1022CA17DC00EEF079 /* Main.storyboard in Resources */,
 				A09E5B5722CA751300EEF079 /* RKCustomView.xib in Resources */,
+				A048FEC522CD14D40090E8F9 /* DayOfWeekView.xib in Resources */,
 				A09E5B3B22CA299E00EEF079 /* RootViewController.xib in Resources */,
 				A09E5B3122CA1AC800EEF079 /* IventCell.xib in Resources */,
 				A09E5B2922CA1A3200EEF079 /* TimeCell.xib in Resources */,
@@ -288,10 +310,12 @@
 				A09E5B4422CA4F3600EEF079 /* DataSource.m in Sources */,
 				A09E5B3A22CA299E00EEF079 /* RootViewController.m in Sources */,
 				A09E5B5122CA73F200EEF079 /* WeekViewController.m in Sources */,
+				A048FEC822CD3F2A0090E8F9 /* SelectedDate.m in Sources */,
 				A09E5B3622CA216F00EEF079 /* DayScheduleLayout.m in Sources */,
 				A09E5B2822CA1A3200EEF079 /* TimeCell.m in Sources */,
 				A09E5B1822CA17DD00EEF079 /* main.m in Sources */,
 				A0D0204522CAA94B0085858D /* RKEvent.m in Sources */,
+				A048FEC322CD14C30090E8F9 /* DayOfWeekView.m in Sources */,
 				A09E5B0A22CA17DC00EEF079 /* AppDelegate.m in Sources */,
 				A09E5B5522CA74F100EEF079 /* RKCustomView.m in Sources */,
 			);

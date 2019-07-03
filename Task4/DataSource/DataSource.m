@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSArray<RKEvent *> *events;
 @property (nonatomic, strong) NSCalendar *calendar;
 @property (nonatomic, strong) NSDate *selectedDate;
-@property (nonatomic, strong) EKEventStore *eventStore;
+@property (nonatomic, strong, readwrite) EKEventStore *eventStore;
 @property (nonatomic, assign) BOOL isAccessToEventStoreGranted;
 @property (nonatomic, assign)  NSArray<EKCalendar *> *allCalendars;
 @end
@@ -46,6 +46,8 @@
     return ([EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent] == EKAuthorizationStatusAuthorized);
 }
 
+
+
 - (void)updateAuthorizationStatusToAccessEventStore {
    
     EKAuthorizationStatus authorizationStatus = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
@@ -66,7 +68,7 @@
                                             completion:^(BOOL granted, NSError *error) {
                                                 dispatch_async(dispatch_get_main_queue(), ^{
                                                     weakSelf.isAccessToEventStoreGranted = granted;
-                                                    [weakSelf fetchData];
+                                                    [weakSelf fetchDataForDate:self.selectedDate];
                                                 });
                                             }];
             break;
@@ -75,7 +77,7 @@
     }
 }
 
-- (NSMutableArray<RKEvent *> *)fetchData {
+- (NSMutableArray<RKEvent *> *)fetchDataForDate:(NSDate *)date {
 
     if(![self isAuthorized]) {
         [self updateAuthorizationStatusToAccessEventStore];
@@ -84,12 +86,11 @@
 
     self.eventStore = [EKEventStore new];
 
-    self.selectedDate = [NSDate date];
+    self.selectedDate = date;
     self.calendar = [NSCalendar currentCalendar];
 
-    self.allCalendars = [self.eventStore calendarsForEntityType:EKEntityTypeEvent];
-    NSDate *startDate = [self.calendar dateBySettingHour:0 minute:0 second:0 ofDate:self.selectedDate options:NSCalendarWrapComponents];
-    NSDate *endDate = [self.calendar dateBySettingHour:23 minute:59 second:59 ofDate:self.selectedDate options:NSCalendarWrapComponents];
+    NSDate *startDate = [self.calendar dateBySettingHour:0 minute:0 second:0 ofDate:date options:NSCalendarWrapComponents];
+    NSDate *endDate = [self.calendar dateBySettingHour:23 minute:59 second:59 ofDate:date options:NSCalendarWrapComponents];
     NSPredicate *predicate = [self.eventStore predicateForEventsWithStartDate:startDate endDate:endDate  calendars: nil];
     NSArray<EKEvent *> *ekEvents = [self.eventStore eventsMatchingPredicate:predicate];
     NSMutableArray<RKEvent *> *rkEvents = [NSMutableArray new];

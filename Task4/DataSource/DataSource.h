@@ -11,7 +11,8 @@
 
 @interface DataSource : NSObject
 @property (nonatomic, strong, readonly) NSArray<RKEvent *> *events;
-- (NSMutableArray<RKEvent *> *)fetchData;
+@property (nonatomic, strong, readonly) EKEventStore *eventStore;
+- (NSMutableArray<RKEvent *> *)fetchDataForDate:(NSDate *)date;
 @end
 
 

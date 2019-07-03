@@ -29,7 +29,8 @@ static NSString * const iventCellID = @"IventCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dataSource = [DataSource new];
-    self.allEvents = [self.dataSource fetchData];
+    NSDate *date = [NSDate date];
+    self.allEvents = [self.dataSource fetchDataForDate:date];
     self.customLayout = [DayScheduleLayout new];
     self.customLayout.events = self.allEvents;
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.customLayout];

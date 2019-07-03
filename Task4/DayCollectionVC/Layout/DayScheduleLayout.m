@@ -18,7 +18,8 @@
 
 - (void)prepareLayout{
     DataSource *dataSourxe = [[DataSource alloc] init];
-    self.events = [dataSourxe fetchData];
+    NSDate *date = [NSDate date];
+    self.events = [dataSourxe fetchDataForDate:date];
     self.layouts = [NSMutableArray new];
     CGFloat viewWidth =  CGRectGetWidth(self.collectionView.bounds);
     self.yOffset = 0.f;

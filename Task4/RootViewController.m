@@ -10,6 +10,7 @@
 #import "DayScheduleViewController.h"
 #import "WeekViewController.h"
 #import "DataSource.h"
+#import "SelectedDate.h"
 
 
 @interface RootViewController ()
@@ -27,8 +28,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSDate *date = [NSDate date];
     self.dataSource = [DataSource new];
-    [self.dataSource fetchData];
+    [self.dataSource fetchDataForDate:date];
     self.dayScheduleController = [[DayScheduleViewController alloc] init];
     self.dayScheduleCollectionView = self.dayScheduleController.view;
     [self addChildViewController:self.dayScheduleController];
@@ -40,7 +42,7 @@
     [self addChildViewController:self.weekViewController];
     [self.weekContainerView addSubview:self.weekScheduleCollectionView];
     [self.weekViewController didMoveToParentViewController:self];
-    
+    [[SelectedDate sharedInstance] date];
 
 }
 

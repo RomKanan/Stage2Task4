@@ -12,6 +12,7 @@
 @interface WeekViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
+
 @end
 
 @implementation WeekViewController
@@ -21,9 +22,15 @@ static NSString * const weekCellID = @"WeekCell";
     [super viewDidLoad];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
-    //UICollectionViewFlowLayout *layout = self.collectionView.collectionViewLayout;
     [self.collectionView registerNib:[UINib nibWithNibName:@"WeekCell" bundle:nil]
           forCellWithReuseIdentifier:weekCellID];
+    
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
 }
 
 
@@ -44,6 +51,7 @@ static NSString * const weekCellID = @"WeekCell";
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 3;
 }
+
 
 
 
