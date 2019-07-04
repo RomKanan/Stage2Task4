@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WeekCell : UICollectionViewCell
-@property (strong, nonatomic) NSDate *selectedDate;
+@property (strong, nonatomic) NSDate *referencedDate;
+-(void)setUpCell;
 @end
 
 NS_ASSUME_NONNULL_END

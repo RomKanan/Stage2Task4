@@ -8,6 +8,8 @@
 
 #import "WeekCell.h"
 #import "DayOfWeekView.h"
+#import "SelectedDate.h"
+
 
 enum {
     monday,
@@ -21,6 +23,7 @@ enum {
 
 @interface WeekCell ()
 @property (weak, nonatomic) IBOutlet UIStackView *containerStackView;
+@property (weak, nonatomic) IBOutlet UILabel *dateLable;
 
 @property (strong, nonatomic) NSArray<DayOfWeekView *> *daysOfWeek;
 @end
@@ -29,45 +32,53 @@ enum {
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+}
+
+-(void)setUpCell {
+    for (UIView *view in self.containerStackView.arrangedSubviews){
+        view.removeFromSuperview;
+    }
     NSMutableArray *tempDays = [NSMutableArray new];
     
+    self.dateLable.text = [self russianDate];
+
+    
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    self.selectedDate = [NSDate date];
-    NSDate *nextMonday = [calendar nextDateAfterDate:self.selectedDate matchingUnit:NSCalendarUnitWeekday value:2 options:NSCalendarMatchNextTime];
+    NSDate *nextMonday = [calendar nextDateAfterDate:self.referencedDate matchingUnit:NSCalendarUnitWeekday value:2 options:NSCalendarMatchNextTimePreservingSmallerUnits];
     
     for (NSUInteger i = 0; i < 7; i++) {
         DayOfWeekView * view = [[[NSBundle mainBundle] loadNibNamed:@"DayOfWeekView" owner:self options:nil] firstObject];
-    
+        
         switch (i) {
             case 0:
                 view.dayOfWeekLable.text = @"пн";
-                view.date = [calendar dateByAddingUnit: NSCalendarUnitDay value:-7 toDate:nextMonday options:NSCalendarWrapComponents];
+                view.date = [NSDate dateWithTimeInterval:-(7 * 24 * 60 *60) sinceDate:nextMonday];
                 break;
             case 1:
                 view.dayOfWeekLable.text = @"вт";
-                view.date = [calendar dateByAddingUnit: NSCalendarUnitDay value:-6 toDate:nextMonday options:NSCalendarWrapComponents];
+                view.date = [NSDate dateWithTimeInterval:-(6 * 24 * 60 *60) sinceDate:nextMonday];
                 break;
             case 2:
                 view.dayOfWeekLable.text = @"ср";
-                view.date = [calendar dateByAddingUnit: NSCalendarUnitDay value:-5 toDate:nextMonday options:NSCalendarWrapComponents];
+                view.date = [NSDate dateWithTimeInterval:-(5 * 24 * 60 *60) sinceDate:nextMonday];
                 break;
             case 3:
                 view.dayOfWeekLable.text = @"чт";
-                view.date = [calendar dateByAddingUnit: NSCalendarUnitDay value:-4 toDate:nextMonday options:NSCalendarWrapComponents];
+                view.date = [NSDate dateWithTimeInterval:-(4 * 24 * 60 *60) sinceDate:nextMonday];
                 break;
             case 4:
                 view.dayOfWeekLable.text = @"пт";
-                view.date = [calendar dateByAddingUnit: NSCalendarUnitDay value:-3 toDate:nextMonday options:NSCalendarWrapComponents];
+                view.date = [NSDate dateWithTimeInterval:-(3 * 24 * 60 *60) sinceDate:nextMonday];
                 break;
             case 5:
                 view.dayOfWeekLable.text = @"сб";
-                view.date = [calendar dateByAddingUnit: NSCalendarUnitDay value:-2 toDate:nextMonday options:NSCalendarWrapComponents];
+                view.date = [NSDate dateWithTimeInterval:-(2 * 24 * 60 *60) sinceDate:nextMonday];
                 break;
             case 6:
                 view.dayOfWeekLable.text = @"вс";
-                view.date = [calendar dateByAddingUnit: NSCalendarUnitDay value:-1 toDate:nextMonday options:NSCalendarWrapComponents];
+                view.date = [NSDate dateWithTimeInterval:-(24 * 60 *60) sinceDate:nextMonday];
                 break;
-
+                
             default:
                 break;
         };
@@ -75,30 +86,23 @@ enum {
         [self.containerStackView addArrangedSubview:view];
     }
     self.daysOfWeek = [tempDays copy];
-
-
-
-
     
-    
-    
-    
-//    NSDate *monday = [calendar dateByAddingUnit: NSCalendarUnitDay value:-7 toDate:nextMonday options:NSCalendarWrapComponents];
-//     NSDate *previousMonday = [calendar dateByAddingUnit: NSCalendarUnitDay value:-7 toDate:monday options:NSCalendarWrapComponents];
-//    NSMutableArray * numbersForWekDays = [NSMutableArray new];
-//    for (NSUInteger i = 7; i > 0; i--) {
-//       NSDate *day = [calendar dateByAddingUnit: NSCalendarUnitDay value:-i toDate:nextMonday options:NSCalendarWrapComponents];
-//        [numbersForWekDays addObject:day];
-//  }
-//    NSInteger monday = [calendar component:NSCalendarUnitDay fromDate:nextMonday] - 1;
-//    
-//    for (NSUInteger i = 0; i < self.daysOfWeek.count; i++) {
-//        UILabel *dayOfMonth = (UILabel*)[[self.daysOfWeek objectAtIndex:i] viewWithTag:dayOfMonth];
-//        NSDate *date = [numbersForWekDays objectAtIndex:0];
-//        dayOfMonth.text = [NSString stringWithFormat:@"%ld",[calendar component:NSCalendarUnitDay fromDate:date] ];
-//    }
+}
 
-
+- (NSString *)russianDate{
+    
+    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+    formater.dateFormat = @"M";
+    NSString *month = [formater stringFromDate:self.referencedDate];
+    NSLog(@"%@", month);
+    NSDictionary *russinMonths = @{@"1":@"Января", @"2":@"Февраля", @"3":@"Марта", @"4":@"Апреля", @"5":@"Мая", @"6":@"Июня", @"7":@"Июля", @"8":@"Августа", @"9":@"Сентября", @"10":@"Октября", @"11":@"Ноября", @"12":@"Декабря"};
+    formater.dateFormat = @"dd";
+    NSString *day = [formater stringFromDate:self.referencedDate];
+    formater.dateFormat = @"yyyy";
+    NSString *year = [formater stringFromDate:self.referencedDate];
+    NSString *russianDate = [NSString stringWithFormat:@"%@ %@ %@", day, [russinMonths objectForKey:month], year];
+    
+    return russianDate;
 }
 
 @end

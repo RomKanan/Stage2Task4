@@ -25,9 +25,6 @@
     self.yOffset = 0.f;
 
     
-    NSInteger count = [self.collectionView numberOfItemsInSection:0];
-    
-    
     
     for (NSUInteger i =  0; i < [self.collectionView numberOfItemsInSection:0] - self.events.count; i++){
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];

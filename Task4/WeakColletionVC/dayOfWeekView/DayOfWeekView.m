@@ -28,13 +28,16 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.userInteractionEnabled = YES;
     self.dataSource = [DataSource new];
     self.selectedDayView.layer.cornerRadius = self.selectedDayView.bounds.size.height / 2;
     self.eventsInDayView.layer.cornerRadius = self.eventsInDayView.bounds.size.height / 2;
     [self.eventsInDayView setHidden:YES];
     self.selectedDayView.backgroundColor = UIColor.clearColor;
     [self updateViewContent];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateViewContent) name:@"Date Changed" object:nil];
+    [self.selectedDayView setUserInteractionEnabled:YES];
+    [self.selectedDayView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(viewTouched:)]];
+
 }
 
 -(void)updateViewContent{
@@ -58,12 +61,26 @@
         
     }
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+
+
+- (void)viewTouched:(UITapGestureRecognizer *)recognizer{
+    NSLog(@"aaaa");
 }
-*/
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    NSLog(@"aaaa");
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    NSLog(@"aaaa");
+}
+
+- (IBAction)datePushed:(id)sender {
+    NSLog(@"aaaa");
+}
+
+
+
 
 @end
