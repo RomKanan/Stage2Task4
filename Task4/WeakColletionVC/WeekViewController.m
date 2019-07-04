@@ -27,7 +27,6 @@ static NSString * const weekCellID = @"WeekCell";
     [self.collectionView registerNib:[UINib nibWithNibName:@"WeekCell" bundle:nil]
           forCellWithReuseIdentifier:weekCellID];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dateChanged) name:@"dateChanged" object:nil];
-   // self.collectionView.allowsSelection = YES;
     [self.collectionView setAllowsSelection:YES];
 
  
@@ -72,10 +71,6 @@ static NSString * const weekCellID = @"WeekCell";
             break;
     }
     [cell setUpCell];
-    for (UIView *view in cell.daysOfWeek) {
-        UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped)];
-        [view addGestureRecognizer:recognizer];
-    }
     return cell;
 }
 
@@ -125,31 +120,8 @@ static NSString * const weekCellID = @"WeekCell";
     [self.collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:1 inSection:0]]];
 }
 
--(void)viewTapped {
-    NSLog(@"%@", [[SelectedDate sharedInstance] date]);
-}
 
-//- (BOOL)collectionView:(UICollectionView *)collectionView shouldUpdateFocusInContext:(UICollectionViewFocusUpdateContext *)context{
-//    return YES;
-//}
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-     NSLog(@"fff");
-}
 
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"fff");
-    return YES;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"fff");
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
-     NSLog(@"fff");
-    return YES;
-
-}
 
 
 

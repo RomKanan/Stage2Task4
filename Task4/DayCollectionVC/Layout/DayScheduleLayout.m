@@ -8,6 +8,7 @@
 
 #import "DayScheduleLayout.h"
 #import "DataSource.h"
+#import "SelectedDate.h"
 
 @interface DayScheduleLayout ()
 @property (nonatomic, strong) NSMutableArray<UICollectionViewLayoutAttributes *> *layouts;
@@ -18,7 +19,7 @@
 
 - (void)prepareLayout{
     DataSource *dataSourxe = [[DataSource alloc] init];
-    NSDate *date = [NSDate date];
+    NSDate *date = [[SelectedDate sharedInstance] date];
     self.events = [dataSourxe fetchDataForDate:date];
     self.layouts = [NSMutableArray new];
     CGFloat viewWidth =  CGRectGetWidth(self.collectionView.bounds);

@@ -33,7 +33,7 @@
     self.selectedDayView.backgroundColor = UIColor.clearColor;
     [self updateViewContent];
     [self.selectedDayView setUserInteractionEnabled:YES];
-    [self.selectedDayView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(viewTouched:)]];
+
 
 }
 
@@ -65,27 +65,12 @@
 
 
 
-- (void)viewTouched:(UITapGestureRecognizer *)recognizer{
-    NSLog(@"aaaa");
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    NSLog(@"aaaa");
-}
-
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    NSLog(@"aaaa");
-}
 
 - (IBAction)datePushed:(id)sender {
-    NSLog(@"aaaa");
+    [[SelectedDate sharedInstance] setDate:self.date];
 }
 
-//- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
-//    NSLog(@"Hitted");
-//    return [[UIView alloc] init];
-//
-//}
+
 
 
 

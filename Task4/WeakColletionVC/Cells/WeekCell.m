@@ -50,53 +50,37 @@ enum {
     
     for (NSUInteger i = 0; i < 7; i++) {
         DayOfWeekView * view = [[[NSBundle mainBundle] loadNibNamed:@"DayOfWeekView" owner:self options:nil] firstObject];
-        UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
-        recognizer.numberOfTapsRequired = 1;
-//        recognizer.cancelsTouchesInView = YES;
         view.userInteractionEnabled = YES;
-        
+        view.tag = i;
+
         switch (i) {
             case 0:
                 view.dayOfWeekLable.text = @"пн";
                 view.date = [NSDate dateWithTimeInterval:-(7 * 24 * 60 *60) sinceDate:nextMonday];
-                [view addGestureRecognizer:recognizer];
-                view.tag = i;
                 break;
             case 1:
                 view.dayOfWeekLable.text = @"вт";
                 view.date = [NSDate dateWithTimeInterval:-(6 * 24 * 60 *60) sinceDate:nextMonday];
-                [view addGestureRecognizer:recognizer];
-                view.tag = i;
                 break;
             case 2:
                 view.dayOfWeekLable.text = @"ср";
                 view.date = [NSDate dateWithTimeInterval:-(5 * 24 * 60 *60) sinceDate:nextMonday];
-                [view addGestureRecognizer:recognizer];
-                view.tag = i;
                 break;
             case 3:
                 view.dayOfWeekLable.text = @"чт";
                 view.date = [NSDate dateWithTimeInterval:-(4 * 24 * 60 *60) sinceDate:nextMonday];
-                [view addGestureRecognizer:recognizer];
-                view.tag = i;
                 break;
             case 4:
                 view.dayOfWeekLable.text = @"пт";
                 view.date = [NSDate dateWithTimeInterval:-(3 * 24 * 60 *60) sinceDate:nextMonday];
-                [view addGestureRecognizer:recognizer];
-                view.tag = i;
                 break;
             case 5:
                 view.dayOfWeekLable.text = @"сб";
                 view.date = [NSDate dateWithTimeInterval:-(2 * 24 * 60 *60) sinceDate:nextMonday];
-                [view addGestureRecognizer:recognizer];
-                view.tag = i;
                 break;
             case 6:
                 view.dayOfWeekLable.text = @"вс";
                 view.date = [NSDate dateWithTimeInterval:-(24 * 60 *60) sinceDate:nextMonday];
-                [view addGestureRecognizer:recognizer];
-                view.tag = i;
                 break;
                 
             default:
@@ -124,18 +108,6 @@ enum {
     return russianDate;
 }
 
-- (void)viewTapped:(UITapGestureRecognizer *)recognizer{
-    NSLog(@"rrrrr");
-}
 
-//- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
-//    for (DayOfWeekView *view in self.containerStackView.subviews) {
-//        if ([view pointInside:point withEvent:event]) {
-//            NSLog(@"%@", view.dayOfWeekLable.text);
-//        }
-//    }
-//    return [super hitTest:point withEvent:event];
-//
-//}
 
 @end

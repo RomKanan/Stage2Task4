@@ -52,29 +52,27 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="503-E5-ZPH">
-                    <rect key="frame" x="52" y="64.5" width="50" height="50"/>
+                    <rect key="frame" x="0.0" y="0.0" width="154" height="179"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="50" id="NXF-HW-Wiq"/>
-                        <constraint firstAttribute="height" constant="50" id="eYc-5i-Syv"/>
-                    </constraints>
                     <connections>
                         <action selector="datePushed:" destination="iN0-l3-epB" eventType="touchUpInside" id="x2z-K5-vmw"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Cwf-WV-7RS" firstAttribute="top" secondItem="gKd-Bc-Rdx" secondAttribute="bottom" constant="5" id="5ft-jo-e2v"/>
+                <constraint firstAttribute="bottom" secondItem="503-E5-ZPH" secondAttribute="bottom" id="6zb-s4-K52"/>
                 <constraint firstItem="gKd-Bc-Rdx" firstAttribute="top" secondItem="IhD-Wv-GMd" secondAttribute="top" constant="-2" id="ANw-Np-pYp"/>
                 <constraint firstItem="Cwf-WV-7RS" firstAttribute="centerX" secondItem="gKd-Bc-Rdx" secondAttribute="centerX" id="BHS-Ts-b87"/>
-                <constraint firstItem="503-E5-ZPH" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BiJ-VH-UJu"/>
                 <constraint firstItem="ecK-C4-S1W" firstAttribute="top" secondItem="IhD-Wv-GMd" secondAttribute="bottom" constant="-5" id="C2e-Bc-1sh"/>
-                <constraint firstItem="503-E5-ZPH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="GaE-Sl-rF6"/>
+                <constraint firstItem="503-E5-ZPH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="C76-ez-M7d"/>
                 <constraint firstItem="IhD-Wv-GMd" firstAttribute="centerX" secondItem="gKd-Bc-Rdx" secondAttribute="centerX" id="HWs-dk-zrE"/>
                 <constraint firstItem="ecK-C4-S1W" firstAttribute="centerX" secondItem="gKd-Bc-Rdx" secondAttribute="centerX" id="UZN-cD-zES"/>
                 <constraint firstItem="gKd-Bc-Rdx" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Yhb-wb-mJs"/>
+                <constraint firstAttribute="trailing" secondItem="503-E5-ZPH" secondAttribute="trailing" id="iAD-Au-SfM"/>
                 <constraint firstItem="gKd-Bc-Rdx" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="if4-rX-Bpz"/>
+                <constraint firstItem="503-E5-ZPH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ipj-82-JH7"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
