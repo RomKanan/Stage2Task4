@@ -14,7 +14,6 @@
 @interface DayOfWeekView ()
 @property(strong, nonatomic) DataSource *dataSource;
 
-
 @end
 
 @implementation DayOfWeekView
@@ -23,8 +22,6 @@
     _date = date;
     [self updateViewContent];
 }
-
-
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -42,7 +39,10 @@
 
 -(void)updateViewContent{
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    
+    NSDate *curentDate = [[SelectedDate sharedInstance] date];
+    NSDate *plusOneWeekDate = [NSDate dateWithTimeInterval:-(7 * 24 * 60 *60) sinceDate:curentDate];
+    NSDate *minusOneWeekDate = [NSDate dateWithTimeInterval:(7 * 24 * 60 *60) sinceDate:curentDate];
+        
     if (self.date) {
         NSDate *startDate = [calendar  startOfDayForDate:self.date];
         NSDate *endDate = [calendar dateBySettingHour:23 minute:59 second:59 ofDate:self.date options:NSCalendarWrapComponents];
@@ -52,13 +52,14 @@
             [self.eventsInDayView setHidden:NO];
         }
         
-        if([calendar isDate:self.date equalToDate:[[SelectedDate sharedInstance] date] toUnitGranularity:NSCalendarUnitDay])
+        if([calendar isDate:self.date equalToDate:curentDate toUnitGranularity:NSCalendarUnitDay] ||
+           [calendar isDate:self.date equalToDate:plusOneWeekDate toUnitGranularity:NSCalendarUnitDay] ||
+           [calendar isDate:self.date equalToDate:minusOneWeekDate toUnitGranularity:NSCalendarUnitDay])
         {
             self.selectedDayView.backgroundColor = UIColor.redColor;
         }
         NSInteger numberOfDay = [calendar component:NSCalendarUnitDay fromDate:self.date];
         self.dayOfMonthLable.text = [NSString stringWithFormat:@"%ld", numberOfDay];
-        
     }
 }
 
@@ -79,6 +80,12 @@
 - (IBAction)datePushed:(id)sender {
     NSLog(@"aaaa");
 }
+
+//- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
+//    NSLog(@"Hitted");
+//    return [[UIView alloc] init];
+//
+//}
 
 
 

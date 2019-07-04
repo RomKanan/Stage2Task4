@@ -26,6 +26,11 @@ static NSString * const weekCellID = @"WeekCell";
     self.collectionView.delegate = self;
     [self.collectionView registerNib:[UINib nibWithNibName:@"WeekCell" bundle:nil]
           forCellWithReuseIdentifier:weekCellID];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dateChanged) name:@"dateChanged" object:nil];
+   // self.collectionView.allowsSelection = YES;
+    [self.collectionView setAllowsSelection:YES];
+
+ 
     
     
 }
@@ -33,6 +38,7 @@ static NSString * const weekCellID = @"WeekCell";
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+    [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
 }
 
 
@@ -45,6 +51,8 @@ static NSString * const weekCellID = @"WeekCell";
     WeekCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:weekCellID forIndexPath:indexPath];
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDate *date = [calendar startOfDayForDate:[[SelectedDate sharedInstance] date]];
+
+    
     switch (indexPath.item) {
             
         case 0:
@@ -64,6 +72,10 @@ static NSString * const weekCellID = @"WeekCell";
             break;
     }
     [cell setUpCell];
+    for (UIView *view in cell.daysOfWeek) {
+        UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped)];
+        [view addGestureRecognizer:recognizer];
+    }
     return cell;
 }
 
@@ -75,42 +87,69 @@ static NSString * const weekCellID = @"WeekCell";
     return 3;
 }
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    NSLog(@"aaaa");
-}
-
-- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
-    NSLog(@"aaaa");
-
-}  // called on finger up as we are moving
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
- 
+    __weak WeekViewController *weakSelf = self;
    NSUInteger tag = [[self.collectionView visibleCells] objectAtIndex:0].tag;
     switch (tag) {
-        case 0:
+        case 0:{
            [[SelectedDate sharedInstance] setDate:[[[SelectedDate sharedInstance] date] dateByAddingTimeInterval:-(7 * 24 * 60 *60)]];
             NSLog(@"%@", [[SelectedDate sharedInstance] date]);
-            self.collectionView.reloadData;
-            [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+            [self.collectionView performBatchUpdates:^{
+                [weakSelf.collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:1 inSection:0]]];
+            } completion:^(BOOL finished) {
+                [weakSelf.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+                [weakSelf.collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0],[NSIndexPath indexPathForItem:2 inSection:0]]];
+            }];
+        
             
-            break;
+            break;}
         case 1:
-            NSLog(@"%@", [[SelectedDate sharedInstance] date]);
             return;
             break;
-        case 2:
-            NSLog(@"%@", [[SelectedDate sharedInstance] date]);
+        case 2:{
             [[SelectedDate sharedInstance] setDate:[[[SelectedDate sharedInstance] date] dateByAddingTimeInterval:(7 * 24 * 60 *60)]];
-            self.collectionView.reloadData;
-            [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
-            break;
+            [self.collectionView performBatchUpdates:^{
+                [weakSelf.collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:1 inSection:0]]];
+            } completion:^(BOOL finished) {
+                [weakSelf.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+                [weakSelf.collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0],[NSIndexPath indexPathForItem:2 inSection:0]]];
+            }];
+            break;}
         default:
             break;
     }
 
 }
 
+-(void)dateChanged {
+    [self.collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:1 inSection:0]]];
+}
 
+-(void)viewTapped {
+    NSLog(@"%@", [[SelectedDate sharedInstance] date]);
+}
+
+//- (BOOL)collectionView:(UICollectionView *)collectionView shouldUpdateFocusInContext:(UICollectionViewFocusUpdateContext *)context{
+//    return YES;
+//}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+     NSLog(@"fff");
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"fff");
+    return YES;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"fff");
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
+     NSLog(@"fff");
+    return YES;
+
+}
 
 
 

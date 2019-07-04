@@ -30,6 +30,7 @@ static bool isFirstAccess = YES;
     @synchronized (self) {
         _date = date;
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"dateChanged" object:nil];
 }
 - (NSDate *)date{
     @synchronized (self) {
