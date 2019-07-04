@@ -88,7 +88,9 @@
 
     self.selectedDate = date;
     self.calendar = [NSCalendar currentCalendar];
-
+    if (!date) {
+        return nil;
+    }
     NSDate *startDate = [self.calendar dateBySettingHour:0 minute:0 second:0 ofDate:date options:NSCalendarWrapComponents];
     NSDate *endDate = [self.calendar dateBySettingHour:23 minute:59 second:59 ofDate:date options:NSCalendarWrapComponents];
     NSPredicate *predicate = [self.eventStore predicateForEventsWithStartDate:startDate endDate:endDate  calendars: nil];

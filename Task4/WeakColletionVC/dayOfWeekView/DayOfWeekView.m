@@ -46,10 +46,12 @@
     if (self.date) {
         NSDate *startDate = [calendar  startOfDayForDate:self.date];
         NSDate *endDate = [calendar dateBySettingHour:23 minute:59 second:59 ofDate:self.date options:NSCalendarWrapComponents];
-        NSPredicate *predicate = [self.dataSource.eventStore predicateForEventsWithStartDate:startDate endDate:endDate  calendars: nil];
-        NSArray<EKEvent *> *events = [self.dataSource.eventStore eventsMatchingPredicate:predicate];
-        if (events.count > 0) {
-            [self.eventsInDayView setHidden:NO];
+        if (self.dataSource.eventStore) {
+            NSPredicate *predicate = [self.dataSource.eventStore predicateForEventsWithStartDate:startDate endDate:endDate  calendars: nil];
+            NSArray<EKEvent *> *events = [self.dataSource.eventStore eventsMatchingPredicate:predicate];
+            if (events.count > 0) {
+                [self.eventsInDayView setHidden:NO];
+            }
         }
         
         if([calendar isDate:self.date equalToDate:curentDate toUnitGranularity:NSCalendarUnitDay] ||
