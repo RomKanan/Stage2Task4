@@ -217,11 +217,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Task4/DayCollectionVC/DayScheduleViewController.m"
-            timestampString = "583937848.047933"
+            timestampString = "583943320.364666"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
             landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -233,7 +233,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Task4/WeakColletionVC/WeekViewController.m"
-            timestampString = "583937848.048383"
+            timestampString = "583943320.365199"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "50"
@@ -249,7 +249,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Task4/WeakColletionVC/dayOfWeekView/DayOfWeekView.m"
-            timestampString = "583937848.048452"
+            timestampString = "583943320.3652771"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
@@ -265,7 +265,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Task4/WeakColletionVC/dayOfWeekView/DayOfWeekView.m"
-            timestampString = "583937848.048509"
+            timestampString = "583943320.365343"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
@@ -281,7 +281,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Task4/WeakColletionVC/Cells/WeekCell.m"
-            timestampString = "583937848.048566"
+            timestampString = "583943320.365405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"
@@ -297,7 +297,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Task4/WeakColletionVC/dayOfWeekView/DayOfWeekView.m"
-            timestampString = "583937848.048612"
+            timestampString = "583943320.365458"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
@@ -313,7 +313,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Task4/DayCollectionVC/Layout/DayScheduleLayout.m"
-            timestampString = "583937848.048668"
+            timestampString = "583943320.365522"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
@@ -329,7 +329,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Task4/DayCollectionVC/Layout/DayScheduleLayout.m"
-            timestampString = "583937848.048717"
+            timestampString = "583943320.365576"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
@@ -357,174 +357,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Task4/DayCollectionVC/DayScheduleViewController.m"
-            timestampString = "583937848.048788"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "-placeTimeStamp"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Task4/DayCollectionVC/DayScheduleViewController.m"
-            timestampString = "583937848.049053"
+            timestampString = "583943320.36566"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "-placeTimeStamp"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Task4/DayCollectionVC/DayScheduleViewController.m"
-            timestampString = "583937848.0492851"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "-placeTimeStamp"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Task4/DayCollectionVC/DayScheduleViewController.m"
-            timestampString = "583937848.049508"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "-placeTimeStamp"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__43-[DayScheduleViewController placeTimeStamp]_block_invoke"
-                  moduleName = "Task4"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apalon.student/Documents/Work/Task4/Task4/DayCollectionVC/DayScheduleViewController.m"
-                  timestampString = "583937848.111459"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "125"
-                  endingLineNumber = "125"
-                  offsetFromSymbolStart = "51">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__43-[DayScheduleViewController placeTimeStamp]_block_invoke_2"
-                  moduleName = "Task4"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apalon.student/Documents/Work/Task4/Task4/DayCollectionVC/DayScheduleViewController.m"
-                  timestampString = "583937848.113933"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "126"
-                  endingLineNumber = "126"
-                  offsetFromSymbolStart = "27">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_e8_32w"
-                  moduleName = "Task4"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apalon.student/Documents/Work/Task4/Task4/DayCollectionVC/DayScheduleViewController.m"
-                  timestampString = "583937848.116358"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "125"
-                  endingLineNumber = "125"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Task4/DayCollectionVC/DayScheduleViewController.m"
-            timestampString = "583937848.049731"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "-placeTimeStamp"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__43-[DayScheduleViewController placeTimeStamp]_block_invoke.144"
-                  moduleName = "Task4"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apalon.student/Documents/Work/Task4/Task4/DayCollectionVC/DayScheduleViewController.m"
-                  timestampString = "583937848.124385"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "130"
-                  endingLineNumber = "130"
-                  offsetFromSymbolStart = "51">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__43-[DayScheduleViewController placeTimeStamp]_block_invoke_2.145"
-                  moduleName = "Task4"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apalon.student/Documents/Work/Task4/Task4/DayCollectionVC/DayScheduleViewController.m"
-                  timestampString = "583937848.127216"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "131"
-                  endingLineNumber = "131"
-                  offsetFromSymbolStart = "27">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Task4/DayCollectionVC/DayScheduleViewController.m"
-            timestampString = "583937848.049953"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "-placeTimeStamp"
             landmarkType = "7">
          </BreakpointContent>

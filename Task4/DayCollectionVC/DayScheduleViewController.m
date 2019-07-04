@@ -25,6 +25,8 @@
 @property (strong, nonatomic) UIView *timeStampContainerView;
 @property (strong, nonatomic) UILabel *timeStampLable;
 @property (strong, nonatomic) UIView *timeLineView;
+@property (strong, nonatomic) NSTimer *StartTimer;
+@property (strong, nonatomic) NSTimer *timer;
 @end
 
 @implementation DayScheduleViewController
@@ -90,21 +92,44 @@ static NSString * const iventCellID = @"IventCell";
 - (void)placeTimeStamp{
     self.calendar = [NSCalendar currentCalendar];
     NSDate *curentTime = [NSDate date];
-    NSInteger curentHour = [self.calendar component:NSCalendarUnitHour fromDate:curentTime];
     NSInteger curentMinute = [self.calendar component:NSCalendarUnitMinute fromDate:curentTime];
     NSDate *nextMinute = [self.calendar nextDateAfterDate:curentTime matchingUnit:(NSCalendarUnitMinute) value:curentMinute + 1 options:(NSCalendarMatchNextTime)];
     NSDate *nextQuoterHour = [self.calendar nextDateAfterDate:curentTime matchingUnit:(NSCalendarUnitMinute) value:15 options:(NSCalendarMatchNextTime)];
  
+    if ((curentMinute >= 15)&&(curentMinute < 30)) {
+        nextQuoterHour = [self.calendar nextDateAfterDate:curentTime matchingUnit:(NSCalendarUnitMinute) value:30 options:(NSCalendarMatchNextTime)];
+    } else if ((curentMinute >= 30)&&(curentMinute < 45)) {
+        nextQuoterHour = [self.calendar nextDateAfterDate:curentTime matchingUnit:(NSCalendarUnitMinute) value:46 options:(NSCalendarMatchNextTime)];
+    } else if ((curentMinute >= 45)&&(curentMinute < 60)) {
+        nextQuoterHour = [self.calendar nextDateAfterDate:curentTime matchingUnit:(NSCalendarUnitMinute) value:0 options:(NSCalendarMatchNextTime)];
+    }
+    [self recalculateTimerPosition];
+    __weak DayScheduleViewController *weakSelf = self;
+   self.StartTimer = [[NSTimer alloc] initWithFireDate:nextMinute interval:0.01 repeats:NO block:^(NSTimer * _Nonnull timer) {
+      weakSelf.timer = [NSTimer scheduledTimerWithTimeInterval:60.2 target:weakSelf selector:@selector(recalculateTimerPosition) userInfo:nil repeats:YES];
+       [weakSelf recalculateTimerPosition];
+
+    }];
+    [[NSRunLoop currentRunLoop] addTimer:self.StartTimer forMode:NSRunLoopCommonModes];
+    
+
+
+    
+    
+}
+
+- (void)recalculateTimerPosition{
+    NSDate *curentTime = [NSDate date];
+    NSInteger curentHour = [self.calendar component:NSCalendarUnitHour fromDate:curentTime];
+    NSInteger curentMinute = [self.calendar component:NSCalendarUnitMinute fromDate:curentTime];
+    
     NSInteger yLableOffset = 0;
     if ((curentMinute >= 15)&&(curentMinute < 30)) {
         yLableOffset = 15;
-        nextQuoterHour = [self.calendar nextDateAfterDate:curentTime matchingUnit:(NSCalendarUnitMinute) value:30 options:(NSCalendarMatchNextTime)];
     } else if ((curentMinute >= 30)&&(curentMinute < 45)) {
         yLableOffset = 30;
-        nextQuoterHour = [self.calendar nextDateAfterDate:curentTime matchingUnit:(NSCalendarUnitMinute) value:46 options:(NSCalendarMatchNextTime)];
     } else if ((curentMinute >= 45)&&(curentMinute < 60)) {
         yLableOffset = 45;
-        nextQuoterHour = [self.calendar nextDateAfterDate:curentTime matchingUnit:(NSCalendarUnitMinute) value:0 options:(NSCalendarMatchNextTime)];
     }
     
     CGFloat yLablePosition = (CGFloat)(((curentHour * 60) + yLableOffset)*2);
@@ -114,32 +139,13 @@ static NSString * const iventCellID = @"IventCell";
     if (curentMinute < 10) {
         curentMinuetString = [NSString stringWithFormat:@"0%ld", curentMinute];
     }
-    self.timeLineView.frame = CGRectMake(0, yTimeLinePosition, viewWidth, 2);
+    self.timeLineView.frame = CGRectMake(50, yTimeLinePosition, viewWidth - 50, 2);
     self.timeStampContainerView.frame = CGRectMake(0, yLablePosition, 50, 29);
     self.timeStampLable.text = [NSString stringWithFormat:@"  %ld:%@", curentHour, curentMinuetString];
-    [self.collectionView bringSubviewToFront: self.timeLineView];
     [self.collectionView bringSubviewToFront: self.self.timeStampContainerView];
     [self.collectionView bringSubviewToFront: self.timeStampLable];
-    __weak DayScheduleViewController *weakSelf = self;
-    [[NSTimer alloc] initWithFireDate:nextMinute interval:60 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            weakSelf.timeLineView.transform = CGAffineTransformMakeTranslation(0, 2);
-        });
-    }];
-    [[NSTimer alloc] initWithFireDate:nextQuoterHour interval:(60 * 15) repeats:YES block:^(NSTimer * _Nonnull timer) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            weakSelf.timeStampContainerView.transform = CGAffineTransformMakeTranslation(0, 30);
-        });
-    }];
-    
+    [self.collectionView bringSubviewToFront: self.timeLineView];
 
-
-    
-    
-}
-
-- (void)placeTimeLine{
-    
 }
 
 
